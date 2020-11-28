@@ -13,6 +13,9 @@
 		89A6F5C62571D9DA00C5ECDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A6F5C42571D9DA00C5ECDE /* Main.storyboard */; };
 		89A6F5C82571D9DD00C5ECDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89A6F5C72571D9DD00C5ECDE /* Assets.xcassets */; };
 		89A6F5CB2571D9DD00C5ECDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A6F5C92571D9DD00C5ECDE /* LaunchScreen.storyboard */; };
+		89A6F5D52571EB1C00C5ECDE /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A6F5D42571EB1C00C5ECDE /* CreateAccountViewController.swift */; };
+		89A6F5D82571EB4700C5ECDE /* PreviousSongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A6F5D72571EB4700C5ECDE /* PreviousSongsViewController.swift */; };
+		89A6F5DB2571EB6300C5ECDE /* NewSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A6F5DA2571EB6300C5ECDE /* NewSongViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		89A6F5C72571D9DD00C5ECDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89A6F5CA2571D9DD00C5ECDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89A6F5CC2571D9DD00C5ECDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89A6F5D42571EB1C00C5ECDE /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		89A6F5D72571EB4700C5ECDE /* PreviousSongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousSongsViewController.swift; sourceTree = "<group>"; };
+		89A6F5DA2571EB6300C5ECDE /* NewSongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSongViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,9 @@
 				89A6F5C72571D9DD00C5ECDE /* Assets.xcassets */,
 				89A6F5C92571D9DD00C5ECDE /* LaunchScreen.storyboard */,
 				89A6F5CC2571D9DD00C5ECDE /* Info.plist */,
+				89A6F5D42571EB1C00C5ECDE /* CreateAccountViewController.swift */,
+				89A6F5D72571EB4700C5ECDE /* PreviousSongsViewController.swift */,
+				89A6F5DA2571EB6300C5ECDE /* NewSongViewController.swift */,
 			);
 			path = Listenr;
 			sourceTree = "<group>";
@@ -137,9 +146,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89A6F5D52571EB1C00C5ECDE /* CreateAccountViewController.swift in Sources */,
 				89A6F5C32571D9DA00C5ECDE /* LoginViewController.swift in Sources */,
 				89A6F5BF2571D9DA00C5ECDE /* AppDelegate.swift in Sources */,
 				89A6F5C12571D9DA00C5ECDE /* SceneDelegate.swift in Sources */,
+				89A6F5DB2571EB6300C5ECDE /* NewSongViewController.swift in Sources */,
+				89A6F5D82571EB4700C5ECDE /* PreviousSongsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

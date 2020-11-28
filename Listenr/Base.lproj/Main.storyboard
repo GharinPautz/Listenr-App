@@ -119,15 +119,20 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="N8N-x0-oUn" secondAttribute="trailing" constant="16" id="jrt-H4-rGS"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="qwV-pP-Kby" id="tWH-Ky-iJS"/>
+                        <outlet property="usernameTextField" destination="ffg-nb-sRA" id="E8d-IU-bnP"/>
+                        <outlet property="view" destination="mKg-rf-crK" id="u7V-bB-aWh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140" y="103.89805097451276"/>
         </scene>
-        <!--View Controller-->
+        <!--Previous Songs View Controller-->
         <scene sceneID="yJC-kY-rDc">
             <objects>
-                <viewController id="wSF-ND-b5u" sceneMemberID="viewController">
+                <viewController id="wSF-ND-b5u" customClass="PreviousSongsViewController" customModule="Listenr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fyv-Y5-m2Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,6 +159,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="newSongButtonPressed:" destination="wSF-ND-b5u" eventType="touchUpInside" id="xiP-U5-626"/>
                                     <segue destination="SwV-x5-jaf" kind="show" id="220-jZ-11L"/>
                                 </connections>
                             </button>
@@ -171,15 +177,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MDc-xf-0Eo"/>
+                    <connections>
+                        <outlet property="tableView" destination="une-dj-9NI" id="NfS-6g-g2z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w59-C7-Ih9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="898.39999999999998" y="116.49175412293854"/>
         </scene>
-        <!--View Controller-->
+        <!--New Song View Controller-->
         <scene sceneID="fHs-ad-eUJ">
             <objects>
-                <viewController id="SwV-x5-jaf" sceneMemberID="viewController">
+                <viewController id="SwV-x5-jaf" customClass="NewSongViewController" customModule="Listenr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2De-HO-CuS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -191,6 +200,9 @@
                                 <state key="normal" title="Add to Spotify Library">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="addToLibraryButtonPressed:" destination="SwV-x5-jaf" eventType="touchUpInside" id="w6d-cj-PBx"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We found this for you..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWC-bc-p5p">
                                 <rect key="frame" x="16" y="16" width="343" height="30"/>
@@ -235,15 +247,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lG5-v1-pig"/>
+                    <connections>
+                        <outlet property="albumArtImageView" destination="AVb-Wx-5dt" id="gy3-8I-euJ"/>
+                        <outlet property="artistLabel" destination="yIJ-Eu-JF8" id="b82-N7-DGa"/>
+                        <outlet property="trackTitleLabel" destination="OLa-r2-658" id="rpd-Ff-WgX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hP0-p7-vqz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1610.4000000000001" y="125.4872563718141"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Account View Controller-->
         <scene sceneID="E6s-No-0ZK">
             <objects>
-                <viewController id="WQ0-mi-kbW" sceneMemberID="viewController">
+                <viewController id="WQ0-mi-kbW" customClass="CreateAccountViewController" customModule="Listenr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="paJ-B1-sX8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -341,6 +358,9 @@
                                         <rect key="frame" x="97.5" y="335" width="148" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Create Account"/>
+                                        <connections>
+                                            <action selector="createAccountButtonPressed:" destination="WQ0-mi-kbW" eventType="touchUpInside" id="wjy-xP-TDE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -369,6 +389,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eyf-LT-2M5"/>
+                    <connections>
+                        <outlet property="favoriteArtistsTextField" destination="sWO-rE-A0a" id="7wy-GZ-PLr"/>
+                        <outlet property="favoriteSongsTextField" destination="bka-jg-iYQ" id="sRC-ww-MJc"/>
+                        <outlet property="genresTextField" destination="bQE-Vm-5hr" id="08S-9c-IKi"/>
+                        <outlet property="passwordTextField" destination="Vju-M7-bne" id="GZc-ph-eDw"/>
+                        <outlet property="usernameTextField" destination="fkb-dM-DmP" id="kic-MG-hzZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPf-KH-xYV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
