@@ -64,6 +64,9 @@
                                                 <rect key="frame" x="0.0" y="136" width="343" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                 <state key="normal" title="Login"/>
+                                                <connections>
+                                                    <segue destination="wSF-ND-b5u" kind="show" id="KS8-kv-ZTY"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -120,6 +123,122 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140" y="103.89805097451276"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="yJC-kY-rDc">
+            <objects>
+                <viewController id="wSF-ND-b5u" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fyv-Y5-m2Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="une-dj-9NI">
+                                <rect key="frame" x="16" y="16" width="343" height="557"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackCell" id="DZ7-wd-gO6">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DZ7-wd-gO6" id="kdb-bQ-VF2">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eu2-ll-ULm">
+                                <rect key="frame" x="50" y="589" width="275" height="42"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Find New Song">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="SwV-x5-jaf" kind="show" id="220-jZ-11L"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WV3-gQ-ZIq"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <constraints>
+                            <constraint firstItem="une-dj-9NI" firstAttribute="leading" secondItem="WV3-gQ-ZIq" secondAttribute="leading" constant="16" id="2NM-lK-Ocf"/>
+                            <constraint firstItem="Eu2-ll-ULm" firstAttribute="top" secondItem="une-dj-9NI" secondAttribute="bottom" constant="16" id="9Wy-1u-88u"/>
+                            <constraint firstItem="WV3-gQ-ZIq" firstAttribute="bottom" secondItem="Eu2-ll-ULm" secondAttribute="bottom" constant="16" id="M1x-1T-atg"/>
+                            <constraint firstItem="Eu2-ll-ULm" firstAttribute="leading" secondItem="WV3-gQ-ZIq" secondAttribute="leading" constant="50" id="Rb9-f3-pM6"/>
+                            <constraint firstItem="une-dj-9NI" firstAttribute="top" secondItem="WV3-gQ-ZIq" secondAttribute="top" constant="16" id="hLO-eI-tX2"/>
+                            <constraint firstItem="WV3-gQ-ZIq" firstAttribute="trailing" secondItem="Eu2-ll-ULm" secondAttribute="trailing" constant="50" id="tgg-Z2-1Tq"/>
+                            <constraint firstItem="WV3-gQ-ZIq" firstAttribute="trailing" secondItem="une-dj-9NI" secondAttribute="trailing" constant="16" id="zzj-MO-ggS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="MDc-xf-0Eo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w59-C7-Ih9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="898.39999999999998" y="116.49175412293854"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fHs-ad-eUJ">
+            <objects>
+                <viewController id="SwV-x5-jaf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2De-HO-CuS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXt-Gd-mUr">
+                                <rect key="frame" x="50" y="589" width="275" height="42"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Add to Spotify Library">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We found this for you..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWC-bc-p5p">
+                                <rect key="frame" x="16" y="16" width="343" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="ETE-U8-6br">
+                                <rect key="frame" x="16" y="164" width="343" height="305"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AVb-Wx-5dt">
+                                        <rect key="frame" x="51.5" y="0.0" width="240" height="188"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLa-r2-658">
+                                        <rect key="frame" x="132" y="226" width="79.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist/Band" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIJ-Eu-JF8">
+                                        <rect key="frame" x="129" y="284.5" width="85.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UOf-ar-gs6"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <constraints>
+                            <constraint firstItem="UOf-ar-gs6" firstAttribute="trailing" secondItem="kWC-bc-p5p" secondAttribute="trailing" constant="16" id="82y-VU-lDc"/>
+                            <constraint firstItem="UOf-ar-gs6" firstAttribute="bottom" secondItem="oXt-Gd-mUr" secondAttribute="bottom" constant="16" id="JtX-1Q-eS1"/>
+                            <constraint firstItem="kWC-bc-p5p" firstAttribute="leading" secondItem="UOf-ar-gs6" secondAttribute="leading" constant="16" id="NQq-rh-beV"/>
+                            <constraint firstItem="UOf-ar-gs6" firstAttribute="trailing" secondItem="oXt-Gd-mUr" secondAttribute="trailing" constant="50" id="S54-ns-dwZ"/>
+                            <constraint firstItem="oXt-Gd-mUr" firstAttribute="leading" secondItem="UOf-ar-gs6" secondAttribute="leading" constant="50" id="XRV-hu-Cvs"/>
+                            <constraint firstItem="ETE-U8-6br" firstAttribute="top" secondItem="kWC-bc-p5p" secondAttribute="bottom" constant="118" id="e5k-pH-9Ed"/>
+                            <constraint firstItem="ETE-U8-6br" firstAttribute="leading" secondItem="UOf-ar-gs6" secondAttribute="leading" constant="16" id="f6c-Ix-NhA"/>
+                            <constraint firstItem="oXt-Gd-mUr" firstAttribute="top" secondItem="ETE-U8-6br" secondAttribute="bottom" constant="120" id="jdg-Pz-SH6"/>
+                            <constraint firstItem="UOf-ar-gs6" firstAttribute="trailing" secondItem="ETE-U8-6br" secondAttribute="trailing" constant="16" id="pFe-lL-GFM"/>
+                            <constraint firstItem="kWC-bc-p5p" firstAttribute="top" secondItem="UOf-ar-gs6" secondAttribute="top" constant="16" id="uXS-94-lnq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lG5-v1-pig"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hP0-p7-vqz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1610.4000000000001" y="125.4872563718141"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="E6s-No-0ZK">
@@ -257,6 +376,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
