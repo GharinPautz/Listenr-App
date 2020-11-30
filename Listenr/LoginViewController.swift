@@ -9,7 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet var usernameTextField: UITextField!
+    @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
     

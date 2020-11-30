@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class CreateAccountViewController: UIViewController {
 
-    @IBOutlet var usernameTextField: UITextField!
+    @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var genresTextField: UITextField!
     @IBOutlet var favoriteSongsTextField: UITextField!
@@ -23,6 +24,16 @@ class CreateAccountViewController: UIViewController {
     }
     
     @IBAction func createAccountButtonPressed(_ sender: Any) {
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                if let resultError = error {
+                    print(resultError)
+                } else {
+                    print("successfully registered new user")
+                    print(authResult!)
+                }
+            }
+        }
     }
     
     /*

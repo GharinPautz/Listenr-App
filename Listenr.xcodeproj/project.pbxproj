@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		898A3655257479C70048FAD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 898A3654257479C70048FAD7 /* GoogleService-Info.plist */; };
 		89A6F5BF2571D9DA00C5ECDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A6F5BE2571D9DA00C5ECDE /* AppDelegate.swift */; };
 		89A6F5C12571D9DA00C5ECDE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A6F5C02571D9DA00C5ECDE /* SceneDelegate.swift */; };
 		89A6F5C32571D9DA00C5ECDE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A6F5C22571D9DA00C5ECDE /* LoginViewController.swift */; };
@@ -16,9 +17,12 @@
 		89A6F5D52571EB1C00C5ECDE /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A6F5D42571EB1C00C5ECDE /* CreateAccountViewController.swift */; };
 		89A6F5D82571EB4700C5ECDE /* PreviousSongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A6F5D72571EB4700C5ECDE /* PreviousSongsViewController.swift */; };
 		89A6F5DB2571EB6300C5ECDE /* NewSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A6F5DA2571EB6300C5ECDE /* NewSongViewController.swift */; };
+		DB56FA1FCE92358D8AD35E15 /* Pods_Listenr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB69F48E0775CAF480D3A3AB /* Pods_Listenr.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A35B75053650805879A4A51 /* Pods-Listenr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Listenr.release.xcconfig"; path = "Target Support Files/Pods-Listenr/Pods-Listenr.release.xcconfig"; sourceTree = "<group>"; };
+		898A3654257479C70048FAD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89A6F5BB2571D9DA00C5ECDE /* Listenr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Listenr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A6F5BE2571D9DA00C5ECDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89A6F5C02571D9DA00C5ECDE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +34,8 @@
 		89A6F5D42571EB1C00C5ECDE /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		89A6F5D72571EB4700C5ECDE /* PreviousSongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousSongsViewController.swift; sourceTree = "<group>"; };
 		89A6F5DA2571EB6300C5ECDE /* NewSongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSongViewController.swift; sourceTree = "<group>"; };
+		B3A6B308BE9027698221A400 /* Pods-Listenr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Listenr.debug.xcconfig"; path = "Target Support Files/Pods-Listenr/Pods-Listenr.debug.xcconfig"; sourceTree = "<group>"; };
+		DB69F48E0775CAF480D3A3AB /* Pods_Listenr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Listenr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +43,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB56FA1FCE92358D8AD35E15 /* Pods_Listenr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		58F1518D0B789FD703D4085C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B3A6B308BE9027698221A400 /* Pods-Listenr.debug.xcconfig */,
+				4A35B75053650805879A4A51 /* Pods-Listenr.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		89A6F5B22571D9DA00C5ECDE = {
 			isa = PBXGroup;
 			children = (
 				89A6F5BD2571D9DA00C5ECDE /* Listenr */,
 				89A6F5BC2571D9DA00C5ECDE /* Products */,
+				58F1518D0B789FD703D4085C /* Pods */,
+				B9B5AEE3FCB047F6C78DAC2E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,12 +87,21 @@
 				89A6F5C42571D9DA00C5ECDE /* Main.storyboard */,
 				89A6F5C72571D9DD00C5ECDE /* Assets.xcassets */,
 				89A6F5C92571D9DD00C5ECDE /* LaunchScreen.storyboard */,
+				898A3654257479C70048FAD7 /* GoogleService-Info.plist */,
 				89A6F5CC2571D9DD00C5ECDE /* Info.plist */,
 				89A6F5D42571EB1C00C5ECDE /* CreateAccountViewController.swift */,
 				89A6F5D72571EB4700C5ECDE /* PreviousSongsViewController.swift */,
 				89A6F5DA2571EB6300C5ECDE /* NewSongViewController.swift */,
 			);
 			path = Listenr;
+			sourceTree = "<group>";
+		};
+		B9B5AEE3FCB047F6C78DAC2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB69F48E0775CAF480D3A3AB /* Pods_Listenr.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,9 +111,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89A6F5CF2571D9DD00C5ECDE /* Build configuration list for PBXNativeTarget "Listenr" */;
 			buildPhases = (
+				1DFBEA175A332550DF77AA32 /* [CP] Check Pods Manifest.lock */,
 				89A6F5B72571D9DA00C5ECDE /* Sources */,
 				89A6F5B82571D9DA00C5ECDE /* Frameworks */,
 				89A6F5B92571D9DA00C5ECDE /* Resources */,
+				42D4DB81310D1A2E633118B5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -134,12 +164,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				89A6F5CB2571D9DD00C5ECDE /* LaunchScreen.storyboard in Resources */,
+				898A3655257479C70048FAD7 /* GoogleService-Info.plist in Resources */,
 				89A6F5C82571D9DD00C5ECDE /* Assets.xcassets in Resources */,
 				89A6F5C62571D9DA00C5ECDE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1DFBEA175A332550DF77AA32 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Listenr-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42D4DB81310D1A2E633118B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Listenr/Pods-Listenr-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Listenr/Pods-Listenr-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Listenr/Pods-Listenr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		89A6F5B72571D9DA00C5ECDE /* Sources */ = {
@@ -295,6 +368,7 @@
 		};
 		89A6F5D02571D9DD00C5ECDE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3A6B308BE9027698221A400 /* Pods-Listenr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -313,6 +387,7 @@
 		};
 		89A6F5D12571D9DD00C5ECDE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A35B75053650805879A4A51 /* Pods-Listenr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
