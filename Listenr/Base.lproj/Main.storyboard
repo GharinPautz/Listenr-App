@@ -122,7 +122,6 @@
                     <connections>
                         <outlet property="emailTextField" destination="ffg-nb-sRA" id="E8d-IU-bnP"/>
                         <outlet property="passwordTextField" destination="qwV-pP-Kby" id="tWH-Ky-iJS"/>
-                        <outlet property="view" destination="mKg-rf-crK" id="u7V-bB-aWh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -138,7 +137,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="une-dj-9NI">
-                                <rect key="frame" x="16" y="72" width="343" height="501"/>
+                                <rect key="frame" x="16" y="16" width="343" height="557"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackCell" id="DZ7-wd-gO6">
@@ -194,7 +193,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXt-Gd-mUr">
-                                <rect key="frame" x="50" y="615" width="275" height="16"/>
+                                <rect key="frame" x="50" y="589" width="275" height="42"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Add to Spotify Library">
@@ -205,13 +204,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We found this for you..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWC-bc-p5p">
-                                <rect key="frame" x="16" y="72" width="343" height="0.0"/>
+                                <rect key="frame" x="16" y="16" width="343" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="ETE-U8-6br">
-                                <rect key="frame" x="16" y="190" width="343" height="305"/>
+                                <rect key="frame" x="16" y="164" width="343" height="305"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AVb-Wx-5dt">
                                         <rect key="frame" x="51.5" y="0.0" width="240" height="188"/>
@@ -360,6 +359,7 @@
                                         <state key="normal" title="Create Account"/>
                                         <connections>
                                             <action selector="createAccountButtonPressed:" destination="WQ0-mi-kbW" eventType="touchUpInside" id="wjy-xP-TDE"/>
+                                            <segue destination="wSF-ND-b5u" kind="show" id="yB2-Cn-wue"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -421,6 +421,9 @@
             <point key="canvasLocation" x="898.39999999999998" y="116.49175412293854"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yB2-Cn-wue"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
