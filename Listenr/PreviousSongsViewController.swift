@@ -14,7 +14,15 @@ class PreviousSongsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(PreviousSongsViewController.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+    
+    @objc func back(sender: UIBarButtonItem ) {
+        // logout
+        
+        _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func newSongButtonPressed(_ sender: UIButton) {
