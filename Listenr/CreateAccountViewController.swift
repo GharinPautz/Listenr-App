@@ -23,17 +23,48 @@ class CreateAccountViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func createAccountButtonPressed(_ sender: Any) {
-        if let email = emailTextField.text, let password = passwordTextField.text {
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                if let resultError = error {
-                    print(resultError)
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        print("should perform segue called")
+        if identifier == "createAccountSegue"{
+            print("in first if statement")
+            if emailTextField.text == "" {
+                let alertController = UIAlertController(title: "Missing Email", message: "An email for your account has not been entered", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                present(alertController, animated: true, completion: nil)
+                return false
+            } else if passwordTextField.text == "" {
+                let alertController = UIAlertController(title: "Missing Password", message: "A password for your account has not been entered", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                present(alertController, animated: true, completion: nil)
+                return false
+            }
+            
+            if let email = emailTextField.text, let password = passwordTextField.text {
+                print(email)
+                print(password)
+                if password.count >= 6 {
+                    Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                        if let resultError = error {
+                            print(resultError)
+                        } else {
+                            print("successfully registered new user")
+                            print(authResult!)
+                        }
+                    }
+                    return true
                 } else {
-                    print("successfully registered new user")
-                    print(authResult!)
+                    let alertController = UIAlertController(title: "Password Too Short", message: "Your password must be at least 6 characters long", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    present(alertController, animated: true, completion: nil)
+                    return false
                 }
             }
         }
+        return true
+    }
+    
+    @IBAction func createAccountButtonPressed(_ sender: Any) {
+
     }
     
     /*
