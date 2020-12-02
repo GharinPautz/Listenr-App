@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class PreviousSongsViewController: UIViewController {
 
@@ -21,7 +22,14 @@ class PreviousSongsViewController: UIViewController {
     
     @objc func back(sender: UIBarButtonItem ) {
         // logout
+        do {
+            try Auth.auth().signOut()
+            print("successfully logged out user")
+        } catch let error as NSError{
+            print("error signing out \(error)")
+        }
         
+        // return to sign in view controller
         _ = navigationController?.popViewController(animated: true)
     }
     

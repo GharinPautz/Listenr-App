@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
         
         handle = Auth.auth().addStateDidChangeListener({ (Auth, User) in
             // get user's music preferences
-            print(User!)
+            //print(User!)
         })
     }
     
