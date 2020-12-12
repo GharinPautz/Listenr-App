@@ -19,6 +19,15 @@ class PreviousSongsViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(PreviousSongsViewController.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+    
+    @objc func back(sender: UIBarButtonItem ) {
+        // logout
+        
+        _ = navigationController?.popViewController(animated: true)
         // Do any additional setup after loading the view.
         initializeTracks()
         
