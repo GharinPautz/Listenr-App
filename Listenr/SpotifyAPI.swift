@@ -11,7 +11,7 @@ import SwiftyJSON
 class SpotifyAPI {
     static let recommendationsBaseURL = "https://api.spotify.com/v1/recommendations"
     static let searchBaseURL = "https://api.spotify.com/v1/search"
-    static let APIKey = "345001f16f9f4adab0f9835723426177"
+    static let APIKey = ""
     
     static func searchURL(muse: String, type: String) -> URL {
         let params = [
