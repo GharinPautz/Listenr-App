@@ -13,8 +13,8 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var genresTextField: UITextField!
-    @IBOutlet var favoriteSongsTextField: UITextField!
-    @IBOutlet var favoriteArtistsTextField: UITextField!
+    @IBOutlet var favoriteSongTextField: UITextField!
+    @IBOutlet var favoriteArtistTextField: UITextField!
     
     
     override func viewDidLoad() {

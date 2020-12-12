@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-  platform :ios, '14.1'
+  platform :ios, '13.2'
 
 target 'Listenr' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -9,4 +9,5 @@ target 'Listenr' do
 pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
+pod 'SwiftyJSON'
 end
