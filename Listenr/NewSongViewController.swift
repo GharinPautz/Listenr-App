@@ -13,10 +13,21 @@ class NewSongViewController: UIViewController {
     @IBOutlet var trackTitleLabel: UILabel!
     @IBOutlet var artistLabel: UILabel!
     
+    var artistID = ""
+    var trackID = ""
+    var profile = Profile()
+    var recommendedTrack: Track? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // STEPS TO TAKE
+        // Call recommendationsAPI to get a recommended track and store the name, artist, and album art in the recommendedTrack optional
+        // Update UI to show new recemmoneded track info
+        // when user segues back to prevSongsVC, send the new information back and append to tracks array in prevSongsVC
+        // reload data in prevSongsVC
     }
     
 

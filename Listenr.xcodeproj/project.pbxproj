@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2571D9D52584748B00E28BC9 /* SpotifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2571D9D42584748B00E28BC9 /* SpotifyAPI.swift */; };
+		2585EF622585373C000800BA /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2585EF612585373C000800BA /* TrackTableViewCell.swift */; };
+		2585EF6425853829000800BA /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2585EF6325853829000800BA /* Track.swift */; };
+		2585EF6625854F4A000800BA /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2585EF6525854F4A000800BA /* Profile.swift */; };
 		898A3655257479C70048FAD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 898A3654257479C70048FAD7 /* GoogleService-Info.plist */; };
 		89A6F5BF2571D9DA00C5ECDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A6F5BE2571D9DA00C5ECDE /* AppDelegate.swift */; };
 		89A6F5C12571D9DA00C5ECDE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A6F5C02571D9DA00C5ECDE /* SceneDelegate.swift */; };
@@ -21,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2571D9D42584748B00E28BC9 /* SpotifyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPI.swift; sourceTree = "<group>"; };
+		2585EF612585373C000800BA /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
+		2585EF6325853829000800BA /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		2585EF6525854F4A000800BA /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		4A35B75053650805879A4A51 /* Pods-Listenr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Listenr.release.xcconfig"; path = "Target Support Files/Pods-Listenr/Pods-Listenr.release.xcconfig"; sourceTree = "<group>"; };
 		898A3654257479C70048FAD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89A6F5BB2571D9DA00C5ECDE /* Listenr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Listenr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +99,10 @@
 				89A6F5D42571EB1C00C5ECDE /* CreateAccountViewController.swift */,
 				89A6F5D72571EB4700C5ECDE /* PreviousSongsViewController.swift */,
 				89A6F5DA2571EB6300C5ECDE /* NewSongViewController.swift */,
+				2571D9D42584748B00E28BC9 /* SpotifyAPI.swift */,
+				2585EF612585373C000800BA /* TrackTableViewCell.swift */,
+				2585EF6325853829000800BA /* Track.swift */,
+				2585EF6525854F4A000800BA /* Profile.swift */,
 			);
 			path = Listenr;
 			sourceTree = "<group>";
@@ -219,8 +231,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				89A6F5D52571EB1C00C5ECDE /* CreateAccountViewController.swift in Sources */,
+				2585EF6625854F4A000800BA /* Profile.swift in Sources */,
 				89A6F5C32571D9DA00C5ECDE /* LoginViewController.swift in Sources */,
 				89A6F5BF2571D9DA00C5ECDE /* AppDelegate.swift in Sources */,
+				2585EF622585373C000800BA /* TrackTableViewCell.swift in Sources */,
+				2571D9D52584748B00E28BC9 /* SpotifyAPI.swift in Sources */,
+				2585EF6425853829000800BA /* Track.swift in Sources */,
 				89A6F5C12571D9DA00C5ECDE /* SceneDelegate.swift in Sources */,
 				89A6F5DB2571EB6300C5ECDE /* NewSongViewController.swift in Sources */,
 				89A6F5D82571EB4700C5ECDE /* PreviousSongsViewController.swift in Sources */,
@@ -300,7 +316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -355,7 +371,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
