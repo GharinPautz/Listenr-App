@@ -20,16 +20,18 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+        super.viewWillAppear(animated)
         
-        handle = Auth.auth().addStateDidChangeListener({ (Auth, User) in
-            // get user's music preferences
-            //print(User!)
-        })
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        handle = Auth.auth().addStateDidChangeListener({ (Auth, User) in
+            // setup user's music preferences
+            //let userProfile = Profile.init()
+        })
+        
         Auth.auth().removeStateDidChangeListener(handle!)
     }
 

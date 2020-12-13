@@ -11,13 +11,13 @@ import SwiftyJSON
 class SpotifyAPI {
     static let recommendationsBaseURL = "https://api.spotify.com/v1/recommendations"
     static let searchBaseURL = "https://api.spotify.com/v1/search"
-    static let APIKey = ""
+    static let APIKey = "4454950da1fc4bcc9df0125438fecd14"
     
-    static func searchURL(muse: String, type: String) -> URL {
+    static func searchURL(query: String, type: String) -> URL {
         let params = [
-            "key": SpotifyAPI.APIKey,
-            "muse": muse,
-            "type": type
+            "q": query,
+            "type": type,
+            "access_token": SpotifyAPI.APIKey
         ]
         
         var queryItems = [URLQueryItem]()
@@ -33,20 +33,33 @@ class SpotifyAPI {
     
     // Here I started stubbing out how we can get the string optional artistID  using SwiftyJSON
     // It needs a completion handler that updates artist id in the PrevSongViewController class
-/*
+
     static func fetchArtistID(artist: String) -> String? {
 
-        let url = searchURL(muse: artist, type: "artist")
+        let url = searchURL(query: artist, type: "artist")
+        print(url)
         
         let task = URLSession.shared.dataTask(with: url) { (dataOptional, urlResponseOptional, errorOptional) in
             if let data = dataOptional {
-                if let json = try? JSON(data: data) {
-                    let artistID = json["artists"]["items"]["id"].string
+                do {
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                    //let artistID = json["artists"]["items"]["id"].string
+                   
+                } catch {
                     
+                    print("in first else, error converting data to json")
                 }
+            } else {
+                print("in else")
             }
         }
+        return ""
     }
- */
+    
+    static func fetchTrackID(track: String) -> String {
+        return ""
+    }
+ 
     
 }

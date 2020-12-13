@@ -23,9 +23,19 @@ class PreviousSongsViewController: UIViewController, UITableViewDataSource, UITa
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(PreviousSongsViewController.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        //initializeTracks()
+        
+        
+        
+
     }
     
     @objc func back(sender: UIBarButtonItem ) {
+        // return to sign in view controller
+        _ = navigationController?.popViewController(animated: true)
         // logout
         do {
             try Auth.auth().signOut()
@@ -34,18 +44,6 @@ class PreviousSongsViewController: UIViewController, UITableViewDataSource, UITa
             print("error signing out \(error)")
         }
         
-        // return to sign in view controller
-        _ = navigationController?.popViewController(animated: true)
-        // Do any additional setup after loading the view.
-        initializeTracks()
-        
-        // call searchAPI for finding favorite artist's spotify ID
-        // store artist ID in artistID property
-        SpotifyAPI.fetchArtistID(artist: profile.favoriteArtist)
-        // repeat this step for track
-        // call fetchTrackID and store in trackID property
-        
-        // then when a row is selected... in the prepareFor method, send artistID, TrackID, and profile to NewSongViewController class
     }
     
     @IBAction func newSongButtonPressed(_ sender: UIButton) {

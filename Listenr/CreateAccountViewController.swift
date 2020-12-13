@@ -7,9 +7,13 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class CreateAccountViewController: UIViewController {
 
+    let db = Firestore.firestore()
+
+    
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var genresTextField: UITextField!
@@ -24,9 +28,7 @@ class CreateAccountViewController: UIViewController {
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        print("should perform segue called")
         if identifier == "createAccountSegue"{
-            print("in first if statement")
             if emailTextField.text == "" {
                 let alertController = UIAlertController(title: "Missing Email", message: "An email for your account has not been entered", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -64,9 +66,27 @@ class CreateAccountViewController: UIViewController {
     }
     
     @IBAction func createAccountButtonPressed(_ sender: Any) {
+        // add plain music info entered by user to firebase
+        if let genres = genresTextField.text, let artist = favoriteArtistTextField.text, let song = favoriteSongTextField.text, let docID = emailTextField.text {
+            
+            let spotifyArtistID =         SpotifyAPI.fetchArtistID(artist: artist)
 
+            let spotifyTrackID =         SpotifyAPI.fetchTrackID(track: song)
+
+            
+            db.collection("users").document(docID).setData(["genres": genres, "artist": artist, "song": song, "spotifyArtistID": spotifyArtistID, "spotifyTrackID": spotifyTrackID]){
+                err in
+                if let err = err {
+                    print("error adding document: \(err)")
+                } else {
+                    print("document added with ID: \(docID)")
+                }
+            }
+        }
+        
     }
     
+
     /*
     // MARK: - Navigation
 
