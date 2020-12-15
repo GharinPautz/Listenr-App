@@ -16,6 +16,8 @@ class Profile {
     var favoriteArtist: String = ""
     var favoriteTrack: String = ""
     var favoriteGenres: [String] = []
+    var favoriteArtistSpotifyID: String = ""
+    var favoriteTrackSpotifyID: String = ""
     
     // Pull stored data from Firebase
     init() {
@@ -27,10 +29,12 @@ class Profile {
                     let jsonData = document.data() ?? nil
                     print("document data: \(jsonData)")
                     // parse data
-                    if let jsonData = jsonData, let favArtist = jsonData["artist"] as? String, let favSong = jsonData["song"] as? String, let favGenres = jsonData["genres"] as? String, let favGenresArray = favGenres.components(separatedBy: ", ") as? [String]{
+                    if let jsonData = jsonData, let favArtist = jsonData["artist"] as? String, let favSong = jsonData["song"] as? String, let favGenres = jsonData["genres"] as? String, let favGenresArray = favGenres.components(separatedBy: ", ") as? [String], let artistID = jsonData["spotifyArtistID"] as? String, let trackID = jsonData["spotifyTrackID"] as? String {
                         self.favoriteArtist = favArtist
                         self.favoriteTrack = favSong
                         self.favoriteGenres = favGenresArray
+                        self.favoriteArtistSpotifyID = artistID
+                        self.favoriteTrackSpotifyID = trackID
 
                     }
                 } else {

@@ -47,6 +47,17 @@ class PreviousSongsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     @IBAction func newSongButtonPressed(_ sender: UIButton) {
+        SpotifyAPI.getSongRecommendation(artistID: profile.favoriteArtistSpotifyID, trackID: profile.favoriteTrackSpotifyID, genres: profile.favoriteGenres) { (recommendedTrack) in
+            if let track = recommendedTrack {
+                let artist = track.artist
+                let song = track.title
+                
+                print(artist)
+                print(song)
+            }
+            
+        }
+        
     }
     
     /*
@@ -77,9 +88,9 @@ class PreviousSongsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func initializeTracks() {
-        let track1 = Track(title: "Easy", artist: "Troye Sivan", albumArtFileName: nil)
-        let track2 = Track(title: "Dance With Somebody", artist: "Whitney Houston", albumArtFileName: nil)
-        let track3 = Track(title: "The Trees", artist: "Goth Babe", albumArtFileName: nil)
+        let track1 = Track(title: "Easy", artist: "Troye Sivan")
+        let track2 = Track(title: "Dance With Somebody", artist: "Whitney Houston")
+        let track3 = Track(title: "The Trees", artist: "Goth Babe")
         tracks.append(track1)
         tracks.append(track2)
         tracks.append(track3)

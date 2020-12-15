@@ -48,7 +48,6 @@ class CreateAccountViewController: UIViewController {
                             print(resultError)
                         } else {
                             print("successfully registered new user")
-                            print(authResult!)
                         }
                     }
                     return true

@@ -10,11 +10,11 @@ import Foundation
 class Track {
     var title: String
     var artist: String
-    var albumArtFileName: String?
+    //var albumArtFileName: String?
     
-    init(title: String, artist: String, albumArtFileName: String?) {
+    init(title: String, artist: String) {
         self.title = title
         self.artist = artist
-        self.albumArtFileName = albumArtFileName
+        //self.albumArtFileName = albumArtFileName
     }
 }

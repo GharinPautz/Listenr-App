@@ -9,7 +9,7 @@ import Foundation
 import SwiftyJSON
 
 class SpotifyAPI {
-    static let recommendationsBaseURL = "https://api.spotify.com/v1/recommendations"
+    static let recommendationsBaseURL = "https://api.spotify.com/v1/recommendations?"
     static let searchBaseURL = "https://api.spotify.com/v1/search?"
     static let APIKey = "4454950da1fc4bcc9df0125438fecd14"
     static let authKeyStr = "9ecbb13db1e7401f84131d3ca1276c5a:4454950da1fc4bcc9df0125438fecd14"
@@ -40,7 +40,7 @@ class SpotifyAPI {
                     
                     
                     DispatchQueue.main.async {
-                        let url = completion(accessToken, nil)
+                        completion(accessToken, nil)
                     }
                 }
             } catch {
@@ -157,6 +157,102 @@ class SpotifyAPI {
             }
             print("TrackID: \(trackID)")
             return trackID
+           
+        } catch {
+            print("error converting data to json")
+        }
+        return nil
+    }
+    
+    static func getSongRecommendation(artistID: String, trackID: String, genres: [String], completion: @escaping (Track?) -> Void) {
+        // convert array of genres to comma separated list
+        var genresStr = ""
+        for genre in genres {
+            genresStr.append(genre)
+            if genre != genres[genres.count - 1] {
+                genresStr.append("%2C")
+            }
+        }
+        
+        
+        /*
+         let url = URL(string: "https://accounts.spotify.com/api/token")!
+         var request = URLRequest(url: url)
+         request.httpMethod = "POST"
+         let bodyParams = "grant_type=client_credentials"
+         request.httpBody = bodyParams.data(using: String.Encoding.ascii, allowLossyConversion: true)
+         request.addValue(authKey, forHTTPHeaderField: "Authorization")
+         */
+        
+        
+        
+        // get access token
+        getSpotifyToken{ (tokenOptional, errorOptional) in
+            if let accessToken = tokenOptional {
+                
+                // create url
+                let params = [
+                    "seed_artists": artistID,
+                    "seed_tracks": trackID
+                    //"seed_genres": genresStr,
+                ]
+                
+                let headers = [
+                    "Authorization": "Bearer \(accessToken)"
+                ]
+                
+                var queryItems = [URLQueryItem]()
+                for (key, value) in params {
+                    queryItems.append(URLQueryItem(name: key, value: value))
+                }
+                
+                
+                var components = URLComponents(string: SpotifyAPI.recommendationsBaseURL)!
+                components.queryItems = queryItems
+                let url = components.url!
+                
+                //let url = URL(string: SpotifyAPI.recommendationsBaseURL)!
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                
+                for (key, value) in headers {
+                    request.setValue(value, forHTTPHeaderField: key)
+                }
+                
+                print(request)
+                
+                // call spotify recommendations api
+                let task = URLSession.shared.dataTask(with: request) { (dataOptional, urlResponseOptional, errorOptional) in
+                    if let data = dataOptional {
+                        // call to parse results
+                        if let recommendation = self.parseRecommendations(fromData: data){
+                            print(recommendation)
+                            DispatchQueue.main.async {
+                                completion(recommendation)
+                            }
+                        }
+                    }
+                    if let error = errorOptional {
+                        print("error running task: \(error)")
+                    }
+                }
+                task.resume()
+            }
+        }
+            
+    }
+    
+    static func parseRecommendations(fromData data: Data) -> Track? {
+        do {
+        let json = try JSONSerialization.jsonObject(with: data, options: [])
+            print(json)
+            guard let jsonDictionary = json as? [String: Any], let tracks = jsonDictionary["tracks"] as? [[String: Any]], let trackInfo = tracks[0] as? [String: Any], let artistArray = trackInfo["artists"] as? [[String: Any]], let artistName = artistArray[0]["name"] as? String, let trackName = trackInfo["name"] as? String else {
+                print("did not properly parse json from recommendations api")
+                return nil
+            }
+            print("track name: \(trackName)")
+            print("artist name: \(artistName)")
+            return Track(title: trackName, artist: artistName)
            
         } catch {
             print("error converting data to json")
