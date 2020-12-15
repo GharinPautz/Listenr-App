@@ -47,17 +47,27 @@ class PreviousSongsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     @IBAction func newSongButtonPressed(_ sender: UIButton) {
-        SpotifyAPI.getSongRecommendation(artistID: profile.favoriteArtistSpotifyID, trackID: profile.favoriteTrackSpotifyID, genres: profile.favoriteGenres) { (recommendedTrack) in
-            if let track = recommendedTrack {
-                let artist = track.artist
-                let song = track.title
-                
-                print(artist)
-                print(song)
-            }
-            
-        }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "newSongSegue"{
+            if let newSongVC = segue.destination as? NewSongViewController {
+                SpotifyAPI.getSongRecommendation(artistID: profile.favoriteArtistSpotifyID, trackID: profile.favoriteTrackSpotifyID, genres: profile.favoriteGenres) { (recommendedTrack) in
+                    if let track = recommendedTrack {
+                        let artist = track.artist
+                        let song = track.title
+                        
+                        print("Artist in prepare: \(artist)")
+                        print("Song in prepare: \(song)")
+                        
+                        newSongVC.artist = artist
+                        newSongVC.track = song
+                    }
+                }
+            }
+
+        }
     }
     
     /*

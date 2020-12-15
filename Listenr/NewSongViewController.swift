@@ -13,9 +13,9 @@ class NewSongViewController: UIViewController {
     @IBOutlet var trackTitleLabel: UILabel!
     @IBOutlet var artistLabel: UILabel!
     
-    var artistID = ""
-    var trackID = ""
-    var profile = Profile()
+    var artist: String? = nil
+    var track: String? = nil
+
     var recommendedTrack: Track? = nil
     
     override func viewDidLoad() {
@@ -28,11 +28,22 @@ class NewSongViewController: UIViewController {
         // Update UI to show new recemmoneded track info
         // when user segues back to prevSongsVC, send the new information back and append to tracks array in prevSongsVC
         // reload data in prevSongsVC
+    
+        if let artistName = artist, let trackName = track{
+            self.trackTitleLabel.text = trackName
+            self.artistLabel.text = artistName
+        }
+        
+        
+
+            
     }
     
 
-    @IBAction func addToLibraryButtonPressed(_ sender: UIButton) {
-    }
+//    @IBAction func addToLibraryButtonPressed(_ sender: UIButton) {
+//    }
+        
+        
     /*
     // MARK: - Navigation
 

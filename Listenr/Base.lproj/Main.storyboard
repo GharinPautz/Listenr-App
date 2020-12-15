@@ -210,7 +210,7 @@
                                 </state>
                                 <connections>
                                     <action selector="newSongButtonPressed:" destination="wSF-ND-b5u" eventType="touchUpInside" id="xiP-U5-626"/>
-                                    <segue destination="SwV-x5-jaf" kind="show" id="220-jZ-11L"/>
+                                    <segue destination="SwV-x5-jaf" kind="show" identifier="newSongSegue" id="220-jZ-11L"/>
                                 </connections>
                             </button>
                         </subviews>
