@@ -100,8 +100,8 @@
 				89A6F5D72571EB4700C5ECDE /* PreviousSongsViewController.swift */,
 				89A6F5DA2571EB6300C5ECDE /* NewSongViewController.swift */,
 				2571D9D42584748B00E28BC9 /* SpotifyAPI.swift */,
-				2585EF612585373C000800BA /* TrackTableViewCell.swift */,
 				2585EF6325853829000800BA /* Track.swift */,
+				2585EF612585373C000800BA /* TrackTableViewCell.swift */,
 				2585EF6525854F4A000800BA /* Profile.swift */,
 			);
 			path = Listenr;

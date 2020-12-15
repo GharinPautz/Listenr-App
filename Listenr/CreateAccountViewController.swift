@@ -42,8 +42,6 @@ class CreateAccountViewController: UIViewController {
             }
             
             if let email = emailTextField.text, let password = passwordTextField.text {
-                print(email)
-                print(password)
                 if password.count >= 6 {
                     Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                         if let resultError = error {
@@ -69,12 +67,32 @@ class CreateAccountViewController: UIViewController {
         // add plain music info entered by user to firebase
         if let genres = genresTextField.text, let artist = favoriteArtistTextField.text, let song = favoriteSongTextField.text, let docID = emailTextField.text {
             
-            let spotifyArtistID =         SpotifyAPI.fetchArtistID(artist: artist)
+            var spotifyArtistID = ""
+            var spotifyTrackID = ""
+            
+            SpotifyAPI.fetchArtistID(artist: artist) { (artistIDOptional) in
+                if let artistID = artistIDOptional {
+                    spotifyArtistID = artistID
+                    print("executing fetchArtistID completion closure")
+                    self.db.collection("users").document(docID).setData(["spotifyArtistID": spotifyArtistID], merge: true)
+                } else {
+                    print("artistIDOptional is nil")
+                }
+                
+            }
 
-            let spotifyTrackID =         SpotifyAPI.fetchTrackID(track: song)
+            SpotifyAPI.fetchTrackID(track: song) { (trackIDOptional) in
+                if let trackID = trackIDOptional {
+                    spotifyTrackID = trackID
+                    print("executing fetchTrackID completion closure")
+                    self.db.collection("users").document(docID).setData(["spotifyTrackID": spotifyTrackID], merge: true)
+                } else {
+                    print("trackIDOptional is nil")
+                }
+            }
 
             
-            db.collection("users").document(docID).setData(["genres": genres, "artist": artist, "song": song, "spotifyArtistID": spotifyArtistID, "spotifyTrackID": spotifyTrackID]){
+            db.collection("users").document(docID).setData(["genres": genres, "artist": artist, "song": song], merge: true){
                 err in
                 if let err = err {
                     print("error adding document: \(err)")
