@@ -11,7 +11,6 @@ class TrackTableViewCell: UITableViewCell {
     
     @IBOutlet var trackLabel: UILabel!
     @IBOutlet var artistLabel: UILabel!
-    @IBOutlet var albumArtImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +26,5 @@ class TrackTableViewCell: UITableViewCell {
     func update(withTrack track: Track) {
         trackLabel.text = track.title
         artistLabel.text = track.artist
-        // - TODO: have to update image view for cell
     }
 }

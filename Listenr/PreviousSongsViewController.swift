@@ -7,9 +7,10 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class PreviousSongsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+    let db = Firestore.firestore()
     @IBOutlet var tableView: UITableView!
     
     var artistID = ""
@@ -18,6 +19,7 @@ class PreviousSongsViewController: UIViewController, UITableViewDataSource, UITa
     var profile = Profile()
     
     override func viewDidLoad() {
+        print("VIEW DID LOAD IN PREV SONGS")
         super.viewDidLoad()
 
         self.navigationItem.hidesBackButton = true
@@ -26,11 +28,13 @@ class PreviousSongsViewController: UIViewController, UITableViewDataSource, UITa
         tableView.delegate = self
         tableView.dataSource = self
         
-        //initializeTracks()
-        
-        
-        
-
+        //loadTrackArray()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("VIEW DID APPEAR IN PREV SONGS")
+        loadTrackArray()
+        print(tracks)
     }
     
     @objc func back(sender: UIBarButtonItem ) {
@@ -51,22 +55,21 @@ class PreviousSongsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "newSongSegue"{
-            if let newSongVC = segue.destination as? NewSongViewController {
-                SpotifyAPI.getSongRecommendation(artistID: profile.favoriteArtistSpotifyID, trackID: profile.favoriteTrackSpotifyID, genres: profile.favoriteGenres) { (recommendedTrack) in
-                    if let track = recommendedTrack {
-                        let artist = track.artist
-                        let song = track.title
-                        
-                        print("Artist in prepare: \(artist)")
-                        print("Song in prepare: \(song)")
-                        
-                        newSongVC.artist = artist
-                        newSongVC.track = song
+        if let identifier = segue.identifier {
+            if identifier == "newSongSegue"{
+            
+                if let newSongVC = segue.destination as? NewSongViewController {
+                    newSongVC.profileOptional = profile
+                }
+            }
+            else {
+                if let detailVC = segue.destination as? DetailViewController {
+                    if let indexPath = tableView.indexPathForSelectedRow {
+                        let track = tracks[indexPath.row]
+                        detailVC.trackOptional = track                    
                     }
                 }
             }
-
         }
     }
     
@@ -97,12 +100,28 @@ class PreviousSongsViewController: UIViewController, UITableViewDataSource, UITa
         return cell
     }
     
-    func initializeTracks() {
-        let track1 = Track(title: "Easy", artist: "Troye Sivan")
-        let track2 = Track(title: "Dance With Somebody", artist: "Whitney Houston")
-        let track3 = Track(title: "The Trees", artist: "Goth Babe")
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
+    func loadTrackArray() {
+        var tracksArray = [Track]()
+        
+        let user = Auth.auth().currentUser?.email?.description ?? "username"
+        db.collection("users").document(user).getDocument{ (document, error) in
+            if let document = document, document.exists {
+                 let jsonData = document.data() ?? nil
+                 //print("document data: \(jsonData)")
+                 // parse data
+                if let jsonData = jsonData, let recommendedSongs = jsonData["recommendedSongs"] as? [[String: Any]] {
+                     //print(recommendedSongs)
+                    
+                    for song in recommendedSongs {
+                        let track = Track(title: song["songTitle"] as! String, artist: song["songArtist"] as! String, songLink: song["songLink"] as? String)
+                        tracksArray.append(track)
+                    }
+                }
+                
+                self.tracks = tracksArray
+                self.tableView.reloadData()
+            }
+        }
     }
+    
 }

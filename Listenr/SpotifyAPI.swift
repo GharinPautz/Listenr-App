@@ -175,17 +175,6 @@ class SpotifyAPI {
         }
         
         
-        /*
-         let url = URL(string: "https://accounts.spotify.com/api/token")!
-         var request = URLRequest(url: url)
-         request.httpMethod = "POST"
-         let bodyParams = "grant_type=client_credentials"
-         request.httpBody = bodyParams.data(using: String.Encoding.ascii, allowLossyConversion: true)
-         request.addValue(authKey, forHTTPHeaderField: "Authorization")
-         */
-        
-        
-        
         // get access token
         getSpotifyToken{ (tokenOptional, errorOptional) in
             if let accessToken = tokenOptional {
@@ -245,14 +234,18 @@ class SpotifyAPI {
     static func parseRecommendations(fromData data: Data) -> Track? {
         do {
         let json = try JSONSerialization.jsonObject(with: data, options: [])
-            print(json)
             guard let jsonDictionary = json as? [String: Any], let tracks = jsonDictionary["tracks"] as? [[String: Any]], let trackInfo = tracks[0] as? [String: Any], let artistArray = trackInfo["artists"] as? [[String: Any]], let artistName = artistArray[0]["name"] as? String, let trackName = trackInfo["name"] as? String else {
                 print("did not properly parse json from recommendations api")
                 return nil
             }
+            if let songLink = trackInfo["preview_url"] as? String {
+                print("link: \(songLink)")
+                return Track(title: trackName, artist: artistName, songLink: songLink)
+            }
             print("track name: \(trackName)")
             print("artist name: \(artistName)")
-            return Track(title: trackName, artist: artistName)
+            
+            return Track(title: trackName, artist: artistName, songLink: nil)
            
         } catch {
             print("error converting data to json")

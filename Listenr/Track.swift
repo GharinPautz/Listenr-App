@@ -7,14 +7,18 @@
 
 import Foundation
 
-class Track {
+class Track: CustomStringConvertible {
     var title: String
     var artist: String
-    //var albumArtFileName: String?
+    var songLink: String?
+    var description: String {
+        var str = "Track: \(title), \(artist), \(songLink)"
+        return str
+    }
     
-    init(title: String, artist: String) {
+    init(title: String, artist: String, songLink: String?) {
         self.title = title
         self.artist = artist
-        //self.albumArtFileName = albumArtFileName
+        self.songLink = songLink
     }
 }

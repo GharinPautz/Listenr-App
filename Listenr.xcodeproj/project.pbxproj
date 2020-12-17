@@ -11,6 +11,7 @@
 		2585EF622585373C000800BA /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2585EF612585373C000800BA /* TrackTableViewCell.swift */; };
 		2585EF6425853829000800BA /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2585EF6325853829000800BA /* Track.swift */; };
 		2585EF6625854F4A000800BA /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2585EF6525854F4A000800BA /* Profile.swift */; };
+		25A7A120258B1DBF00E44F05 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A7A11F258B1DBF00E44F05 /* DetailViewController.swift */; };
 		898A3655257479C70048FAD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 898A3654257479C70048FAD7 /* GoogleService-Info.plist */; };
 		89A6F5BF2571D9DA00C5ECDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A6F5BE2571D9DA00C5ECDE /* AppDelegate.swift */; };
 		89A6F5C12571D9DA00C5ECDE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A6F5C02571D9DA00C5ECDE /* SceneDelegate.swift */; };
@@ -29,6 +30,7 @@
 		2585EF612585373C000800BA /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 		2585EF6325853829000800BA /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		2585EF6525854F4A000800BA /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		25A7A11F258B1DBF00E44F05 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4A35B75053650805879A4A51 /* Pods-Listenr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Listenr.release.xcconfig"; path = "Target Support Files/Pods-Listenr/Pods-Listenr.release.xcconfig"; sourceTree = "<group>"; };
 		898A3654257479C70048FAD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89A6F5BB2571D9DA00C5ECDE /* Listenr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Listenr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 				2585EF6325853829000800BA /* Track.swift */,
 				2585EF612585373C000800BA /* TrackTableViewCell.swift */,
 				2585EF6525854F4A000800BA /* Profile.swift */,
+				25A7A11F258B1DBF00E44F05 /* DetailViewController.swift */,
 			);
 			path = Listenr;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25A7A120258B1DBF00E44F05 /* DetailViewController.swift in Sources */,
 				89A6F5D52571EB1C00C5ECDE /* CreateAccountViewController.swift in Sources */,
 				2585EF6625854F4A000800BA /* Profile.swift in Sources */,
 				89A6F5C32571D9DA00C5ECDE /* LoginViewController.swift in Sources */,
