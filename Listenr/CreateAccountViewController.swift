@@ -10,63 +10,34 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class CreateAccountViewController: UIViewController {
-
+    //reference to Firesotre database
     let db = Firestore.firestore()
 
-    
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var genresTextField: UITextField!
     @IBOutlet var favoriteSongTextField: UITextField!
     @IBOutlet var favoriteArtistTextField: UITextField!
-    
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        if identifier == "createAccountSegue"{
-//            if emailTextField.text == "" {
-//                let alertController = UIAlertController(title: "Missing Email", message: "An email for your account has not been entered", preferredStyle: .alert)
-//                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//                present(alertController, animated: true, completion: nil)
-//                return false
-//            } else if passwordTextField.text == "" {
-//                let alertController = UIAlertController(title: "Missing Password", message: "A password for your account has not been entered", preferredStyle: .alert)
-//                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//                present(alertController, animated: true, completion: nil)
-//                return false
-//            }
-//
-//            if let email = emailTextField.text, let password = passwordTextField.text {
-//                if password.count >= 6 {
-//                    Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-//                        if let resultError = error {
-//                            print(resultError)
-//                        } else {
-//                            print("successfully registered new user")
-//                        }
-//                    }
-//                    return true
-//                } else {
-//                    let alertController = UIAlertController(title: "Password Too Short", message: "Your password must be at least 6 characters long", preferredStyle: .alert)
-//                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//                    present(alertController, animated: true, completion: nil)
-//                    return false
-//                }
-//            }
-//        }
-//        return true
-//    }
-    
+
+    /*
+      Creates a new user account in Firebase using Firebase Authentication
+      Adds user music preferences to Firebase Firestore database
+
+      Parameter sender: reference to UIButton pressed by user to create their account
+    */
     @IBAction func createAccountButtonPressed(_ sender: Any) {
         // add plain music info entered by user to firebase
-        
+
         if let email = emailTextField.text, let password = passwordTextField.text {
             if password.count >= 6 {
+              // create user account in Firebase with email and password
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let resultError = error {
                     print(resultError)
@@ -75,39 +46,44 @@ class CreateAccountViewController: UIViewController {
                 }
             }
                 } else {
+                    // notify user with an alert that their password must be at least 6 characters
                     let alertController = UIAlertController(title: "Password Too Short", message: "Your password must be at least 6 characters long", preferredStyle: .alert)
                     alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     present(alertController, animated: true, completion: nil)
                 }
         }
-        
+
         if let genres = genresTextField.text, let artist = favoriteArtistTextField.text, let song = favoriteSongTextField.text, let docID = emailTextField.text {
-            
             var spotifyArtistID = ""
             var spotifyTrackID = ""
-            
+
+            // use artist name entered by user to find cooresponding Spotify artist ID using the Spotify Search API
             SpotifyAPI.fetchArtistID(artist: artist) { (artistIDOptional) in
                 if let artistID = artistIDOptional {
                     spotifyArtistID = artistID
                     print("executing fetchArtistID completion closure")
+                    // set returned Spotify artist ID in Firebase Firestore database
                     self.db.collection("users").document(docID).setData(["spotifyArtistID": spotifyArtistID], merge: true)
                 } else {
                     print("artistIDOptional is nil")
                 }
-                
+
             }
 
+            // use track name entered by user to find cooresponding Spotify track ID using the Spotify Search API
             SpotifyAPI.fetchTrackID(track: song) { (trackIDOptional) in
                 if let trackID = trackIDOptional {
                     spotifyTrackID = trackID
                     print("executing fetchTrackID completion closure")
+                    // set returned Spotify track ID in Firebase Firestore database
                     self.db.collection("users").document(docID).setData(["spotifyTrackID": spotifyTrackID], merge: true)
                 } else {
                     print("trackIDOptional is nil")
                 }
             }
 
-            
+            // add plaintext of user's favorite genres, favorite artist, and favorite song to Firebase Firestore database
+            // create empty array for recommendedSongs in database
             db.collection("users").document(docID).setData(["genres": genres, "artist": artist, "song": song, "recommendedSongs": []], merge: true){
                 err in
                 if let err = err {
@@ -117,21 +93,11 @@ class CreateAccountViewController: UIViewController {
                 }
             }
         }
-        
-        
-        
+
+
+        // once user account has been created, pop view controller back to login view controller
         _ = navigationController?.popViewController(animated: true)
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
