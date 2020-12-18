@@ -1,6 +1,9 @@
 //
 //  PreviousSongsViewController.swift
 //  Listenr
+//  This is Ghar Pautz and Kellie Colson's final proejct for iOS App Development Fall, 2020. This program calls Spotify's Authentication, Search, and Recommendations APIs to produce songs for users based on their favorite tracks, artists, and genres of music. Additionally, the music data generated is stored using Firebase Firestore in the current user's account so they are able to access it again when they reopen the app after logging out.
+//  CPSC 315-02, Fall 2020
+//  Final Project
 //
 //  Created by Colson, Kellie Anne on 11/27/20.
 //
@@ -19,7 +22,6 @@ class PreviousSongsViewController: UIViewController, UITableViewDataSource, UITa
     var profile = Profile()
     
     override func viewDidLoad() {
-        print("VIEW DID LOAD IN PREV SONGS")
         super.viewDidLoad()
 
         self.navigationItem.hidesBackButton = true
@@ -31,12 +33,21 @@ class PreviousSongsViewController: UIViewController, UITableViewDataSource, UITa
         //loadTrackArray()
     }
     
+    /**
+     Calls for the data source of the table view to be reloaded after the current user's data is pulled from Firebase
+     
+     - Parameters: animated
+     */
     override func viewDidAppear(_ animated: Bool) {
-        print("VIEW DID APPEAR IN PREV SONGS")
         loadTrackArray()
         print(tracks)
     }
     
+    /**
+     Action that is executed when back button is pressed in navigation controller, which entails signing out of the current user's account on Firebase.
+     
+     - Parameters: sender is the UIBarButtonItem in the view controller that was pressed
+     */
     @objc func back(sender: UIBarButtonItem ) {
         // return to sign in view controller
         _ = navigationController?.popViewController(animated: true)
@@ -54,6 +65,13 @@ class PreviousSongsViewController: UIViewController, UITableViewDataSource, UITa
         
     }
     
+    /**
+     Method to prepare for segue from PreviousSongsViewController
+     
+     - Parameters:
+        - segue: The segue being performed
+        - sender: The event that triggered the segue
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "newSongSegue"{
@@ -83,6 +101,14 @@ class PreviousSongsViewController: UIViewController, UITableViewDataSource, UITa
     }
     */
 
+    /**
+    Method for UITableViewDelegate protocol
+    
+    - Parameters:
+        - tableView: the table view object
+        - numberOfRowsInSection: the number of rows
+    - Returns: An integer representing the number of cells in table
+    */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return tracks.count
@@ -90,6 +116,14 @@ class PreviousSongsViewController: UIViewController, UITableViewDataSource, UITa
         return 0
     }
     
+    /**
+    Method for UITableViewDelegate protocol. Updates the cell's information with a Place object.
+    
+    - Parameters:
+       - tableView: the table view object
+       - indexPath: the selected row
+    - Returns: A  cell in the table
+    */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
         let track = tracks[row]
@@ -100,6 +134,9 @@ class PreviousSongsViewController: UIViewController, UITableViewDataSource, UITa
         return cell
     }
     
+    /**
+     Loading the Track data from Firebase to the data soure array for the table view
+     */
     func loadTrackArray() {
         var tracksArray = [Track]()
         

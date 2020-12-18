@@ -2,6 +2,10 @@
 //  NewSongViewController.swift
 //  Listenr
 //
+//  This is Ghar Pautz and Kellie Colson's final proejct for iOS App Development Fall, 2020. This program calls Spotify's Authentication, Search, and Recommendations APIs to produce songs for users based on their favorite tracks, artists, and genres of music. Additionally, the music data generated is stored using Firebase Firestore in the current user's account so they are able to access it again when they reopen the app after logging out.
+//  CPSC 315-02, Fall 2020
+//  Final Project
+//
 //  Created by Colson, Kellie Anne on 11/27/20.
 //
 
@@ -9,6 +13,9 @@ import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 
+/**
+ View Controller in charge of events fired on screen that generates new songs from Spotify Recommendations API
+ */
 class NewSongViewController: UIViewController {
     let db = Firestore.firestore()
     
@@ -16,8 +23,6 @@ class NewSongViewController: UIViewController {
     @IBOutlet var trackTitleLabel: UILabel!
     @IBOutlet var artistLabel: UILabel!
     
-    //var artistOptional: String? = nil
-    //var trackOptional: String? = nil
     var profileOptional: Profile? = nil
 
     var recommendedTrack: Track? = nil
@@ -61,6 +66,11 @@ class NewSongViewController: UIViewController {
         }
     }
     
+    /**
+     Link opened and redirected to safari when play button is pressed
+     
+     - Parameters: sender is the UIButton object that is pressed
+     */
     @IBAction func playButtonPressed(sender: UIButton){
         if let link = recommendedTrack?.songLink {
             UIApplication.shared.open(URL(string: link)!, options: [:], completionHandler: nil)
@@ -72,6 +82,11 @@ class NewSongViewController: UIViewController {
     }
     
 
+    /**
+     Adds new track from recommendations API to user's song library
+     
+     - Parameters: sender is the UIButton that is pressed in storyboard
+     */
     @IBAction func addToLibraryButtonPressed(_ sender: UIButton) {
         print("IN ADD TO LIBRARY BUTTON PRESSED")
         let user = Auth.auth().currentUser?.email?.description ?? "username"
