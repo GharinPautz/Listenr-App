@@ -14,8 +14,8 @@ import SwiftyJSON
 class SpotifyAPI {
     static let recommendationsBaseURL = "https://api.spotify.com/v1/recommendations?"
     static let searchBaseURL = "https://api.spotify.com/v1/search?"
-    static let APIKey = "4454950da1fc4bcc9df0125438fecd14"
-    static let authKeyStr = "9ecbb13db1e7401f84131d3ca1276c5a:4454950da1fc4bcc9df0125438fecd14"
+    static let APIKey = "" // No key provided for security purposes
+    static let authKeyStr = "" // No key provided for security purposes
     static let authKey = "Basic " + authKeyStr.data(using: .utf8)!.base64EncodedString()
     static var accessToken = ""
 
